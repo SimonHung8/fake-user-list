@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A13: 你的社群名單：手刻功能</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Fake User List</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="favorite.html">Follows</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container mt-5">
+    <!-- filter -->
+    <div class="row">
+      <div id="btn-filter-container">
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filter-container"
+          aria-expanded="false" aria-controls="collapseExample">
+          Filter
+        </button>
+      </div>
+      <div class="collapse" id="filter-container">
+        <div class="card card-body">
+          <div class="container d-flex">
+            <div id="gender-container">
+              <div class="form-check">
+                <p>Gender:</p>
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" value="all">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Show All
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"
+                  value="male">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Male
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3"
+                  value="female">
+                <label class="form-check-label" for="flexRadioDefault3">
+                  Female
+                </label>
+              </div>
+            </div>
+            <div id="age-container">
+              <p>Age:</p>
+              <div class="input-group">
+                <span class="input-group-text" id="basic-addon2">Range: ±</span>
+                <input type="number" class="form-control" id="age-range" placeholder="range" value="5"
+                  aria-label="Recipient's username" aria-describedby="basic-addon2">
+                <input type="range" class="form-range" id="age-start-point" min="1" max="100" step="1" value="30"
+                  id="customRange3">
+              </div>
+              <p id="age">
+                between and
+              </p>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-primary" id="btn-filter-submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- search form -->
+    <div class="row">
+      <form class="row row-cols-lg-auto g-3 align-items-center" id="search-form">
+        <div class="col-12">
+          <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="search-input" placeholder="Username">
+          </div>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+      </form>
+    </div>
+    <!-- data panel -->
+    <div class="row">
+      <div class="container d-flex flex-wrap justify-content-center" id="data-panel">
+        <!--     display user data here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 分頁 -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center" id="paginator">
+    </ul>
+  </nav>
+
+  <!-- modal -->
+  <div class="modal fade" id="user-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <!-- loading區塊 -->
+        <div id="loading-container">
+          <div id="loading"></div>
+        </div>
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel"></h3>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <img src="" alt="user image" class="modal-image">
+            </div>
+            <div class="col-sm-8 modal-description">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
